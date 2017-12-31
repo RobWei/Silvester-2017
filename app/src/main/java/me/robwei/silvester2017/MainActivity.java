@@ -13,12 +13,12 @@ import java.util.concurrent.TimeUnit;
 
 import pl.droidsonroids.gif.GifImageView;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity 
+{
     private static final String FORMAT = "%02d:%02d:%02d";
-    private static final String FORMAT1 = "%02d:%02d";
-    private static final String FORMAT2 = "%02d";
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) 
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         final TextView text1 = (TextView)findViewById(R.id.timeLeft);
@@ -28,7 +28,8 @@ public class MainActivity extends AppCompatActivity {
         giv.setVisibility(View.INVISIBLE);
 
         long between = (Long.valueOf("1514761200000")-System.currentTimeMillis());
-        new CountDownTimer(between, 1000) { // adjust the milli seconds here
+        new CountDownTimer(between, 1000) 
+        {
 
             public void onTick(long millisUntilFinished)
             {
@@ -39,7 +40,9 @@ public class MainActivity extends AppCompatActivity {
                                     TimeUnit.MILLISECONDS.toSeconds(millisUntilFinished) - TimeUnit.MINUTES.toSeconds(
                                     TimeUnit.MILLISECONDS.toMinutes(millisUntilFinished))));
             }
-            public void onFinish() {
+            
+            public void onFinish() 
+            {
                 text1.setText("");
                 text2.setText("");
                 giv.setVisibility(View.VISIBLE);
